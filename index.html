@@ -15,11 +15,23 @@
     .hero{background:linear-gradient(110deg,#25224a 0%,#1b2145 56%,#203747 120%);position:relative;overflow:hidden}
     .hero:before{content:'✦';position:absolute;color:#5fdab326;font-size:150px;right:-12px;top:-80px;pointer-events:none}.small{font-size:12px;color:var(--muted)}.subscribers{font-size:clamp(30px,8vw,45px);font-weight:850;letter-spacing:-.035em;margin:2px 0 7px;font-variant-numeric:tabular-nums}.subscribers span{font-size:13px;color:#c6c9e0;letter-spacing:0}.progress{height:9px;border-radius:99px;background:#131529;overflow:hidden;border:1px solid #4a4a76}.progress>div{height:100%;background:linear-gradient(90deg,#71dcbb,#8c9cfb);transition:width .25s;width:0}.flex{display:flex;justify-content:space-between;gap:10px;align-items:center}.pill{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:5px 9px;color:#d8d7ff;background:#46446b;font-size:11px;font-weight:700}.milestone{color:var(--mint);font-size:12px;font-weight:700}
     .stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin-top:13px}.stat{background:#20243f;border-radius:11px;padding:8px 3px;text-align:center}.stat .label{color:#aeb1d4;font-size:11px}.stat .value{font-weight:850;font-size:21px;line-height:1.5}
-    .sectiontitle{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}.sectiontitle h2{font-size:16px;margin:0}.calendarHead{display:flex;justify-content:space-between;gap:8px;align-items:center}.month{font-size:19px;font-weight:800}.daynames,.days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}.daynames>div{text-align:center;color:#9da1bf;font-size:10px;padding:7px 0}.daynames>div:first-child{color:#ff9aaf}.daynames>div:last-child{color:#9faeff}
-    .day{border:1px solid #363951;border-radius:9px;aspect-ratio:1 / 1.16;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:#22243c;min-height:36px;position:relative}.day.blank{background:transparent;border-color:transparent}.day.past{opacity:.38}.day.current{border:2px solid #f3f1ff;box-shadow:inset 0 0 0 1px #4d4d79}.day.target{outline:2px solid var(--pink);outline-offset:1px}.daynum{font-size:10px;color:#bcbfdf}.glyph{font-size:16px;line-height:1}.day.current:after{content:'●';color:#f7f7ff;font-size:7px;position:absolute;right:4px;top:3px}.day.target .daynum{color:#ffb3da}.legend{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:11px}.legend span{font-size:10px;color:#b6b6d0}.legend b{font-weight:700;margin-right:2px}.event-random{color:#f3a1b3}.event-status{color:#82dfb7}.event-social{color:#a4aeff}.event-lucky{color:#ffe19a}
-    .hand{display:grid;grid-template-columns:repeat(5,minmax(112px,1fr));gap:8px;overflow-x:auto;scroll-snap-type:x proximity;padding:3px 2px 9px;scrollbar-width:thin}.actioncard{min-height:152px;border-radius:15px;background:#22243f;border:1px solid #454764;text-align:left;padding:11px 9px;display:flex;flex-direction:column;gap:5px;align-items:flex-start;scroll-snap-align:start}.actioncard.selected{border:2px solid var(--pink);background:#352d50;padding:10px 8px;box-shadow:0 0 0 1px #ff89c540}.activityicon{font-size:25px}.activityname{font-size:12px;font-weight:780;white-space:nowrap}.level{font-size:14px;color:var(--yellow);font-weight:850}.dayscount{font-size:11px;color:#d0d1eb;margin-top:auto}.subhint{font-size:10px;color:#bdc0d9}.hint{font-size:12px;color:#bfc1d9;margin:8px 0 12px}.primary{width:100%;border:0;border-radius:14px;padding:15px 12px;background:linear-gradient(100deg,#7b6fe9,#c175ba);color:white;font-size:15px;font-weight:800;box-shadow:0 6px 20px #8574de3b}.primary:active{transform:translateY(1px)}.subbtn{padding:8px 10px;border:1px solid #56587b;background:transparent;border-radius:12px;color:#d8d8f1;font-size:12px}.footer{color:#777e9f;text-align:center;font-size:10px;margin-top:16px}.metricrow{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:33px;padding:5px 0;border-bottom:1px solid #3c3d5c;font-size:13px}.metricrow:last-child{border:0}.green{color:var(--mint)}.red{color:var(--red)}.badgetext{display:inline-block;border-radius:8px;padding:5px 8px;background:#303354;font-size:11px;color:#d6dbff}
-    .overlay{position:fixed;inset:0;z-index:5;background:#0a0a1cc9;display:flex;align-items:flex-end;justify-content:center;padding:12px 10px max(14px,env(safe-area-inset-bottom))}.dialog{width:min(520px,100%);max-height:87vh;overflow-y:auto;background:linear-gradient(145deg,#272846,#1b1e38);border:1px solid #4e5274;border-radius:22px;padding:20px 16px;box-shadow:0 20px 45px #05050d99}.dialog h2{margin:2px 0 8px;font-size:22px}.dialog p{line-height:1.7;font-size:14px;color:#d5d8ed}.dialog .primary{margin-top:15px}.diff{font-weight:900;font-size:27px;text-align:center;padding:13px 0}.debugpanel{font-size:12px;margin-top:12px;background:#101327;border-radius:13px;padding:12px;border:1px solid #484c75;display:none}.debugpanel.show{display:block}.debugpanel pre{white-space:pre-wrap;word-break:break-word;font-size:11px;color:#c5cee7;max-height:160px;overflow:auto}.debugactions{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}.note{font-size:11px;color:#9298b9}.sr-only{position:absolute;clip:rect(0,0,0,0);width:1px;height:1px;overflow:hidden}
-    @media(max-width:350px){.top h1{font-size:18px}.cardbox{padding:12px}.daynames,.days{gap:3px}.stats{gap:3px}.stat .label{font-size:10px}.stat .value{font-size:18px}}
+    .sectiontitle{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}.sectiontitle h2{font-size:16px;margin:0}.calendarHead{display:flex;justify-content:space-between;gap:8px;align-items:center}.month{font-size:19px;font-weight:800}.days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;margin-top:10px}
+    .day{border:1px solid #363951;border-radius:11px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:#22243c;min-width:0;min-height:78px;position:relative;padding:6px 1px}
+    .day.past{opacity:.4}.day.current{border:2px solid #f3f1ff;background:#33325a}.day.target{outline:2px solid var(--pink);outline-offset:1px;background:#3d304e}
+    .dayrel{font-size:10px;color:#bcbfdf;white-space:nowrap}.daynum{font-size:12px;font-weight:750;color:#e5e4ff;white-space:nowrap}.glyph{font-size:19px;line-height:1.1}
+    .day.target .daynum{color:#ffb3da}.day.current .glyph{color:#f3f1ff}
+    .far-target{margin-top:10px;font-size:12px;color:#ffe4f1;text-align:center;background:#3d304e;border:1px solid #725576;border-radius:10px;padding:9px}
+    .far-target:empty{display:none}.legend{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:11px}.legend span{font-size:10px;color:#b6b6d0}.legend b{font-weight:700;margin-right:2px}.event-random{color:#f3a1b3}.event-status{color:#82dfb7}.event-social{color:#a4aeff}.event-lucky{color:#ffe19a}
+    .hand{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:3px 1px 7px}
+    .actioncard{min-height:145px;border-radius:15px;background:#22243f;border:1px solid #454764;text-align:left;padding:13px 11px;display:flex;flex-direction:column;gap:5px;align-items:flex-start;min-width:0;width:100%}
+    .actioncard.selected{border:2px solid var(--pink);background:#352d50;padding:12px 10px;box-shadow:0 0 0 1px #ff89c540}
+    .activityicon{font-size:24px}.activityname{font-size:14px;font-weight:800}.level{font-size:15px;color:var(--yellow);font-weight:850}
+    .dayscount{font-size:12px;color:#d0d1eb;margin-top:auto}.cardgain{font-size:13px;color:var(--mint);font-weight:850}.subhint{font-size:10px;color:#bdc0d9}
+    .hint{font-size:12px;color:#bfc1d9;margin:9px 0 12px}.primary{width:100%;border:0;border-radius:14px;padding:15px 12px;background:linear-gradient(100deg,#7b6fe9,#c175ba);color:white;font-size:15px;font-weight:800;box-shadow:0 6px 20px #8574de3b}.primary:active{transform:translateY(1px)}.subbtn{padding:8px 10px;border:1px solid #56587b;background:transparent;border-radius:12px;color:#d8d8f1;font-size:12px}.footer{color:#777e9f;text-align:center;font-size:10px;margin-top:16px}.metricrow{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:33px;padding:5px 0;border-bottom:1px solid #3c3d5c;font-size:13px}.metricrow:last-child{border:0}.green{color:var(--mint)}.red{color:var(--red)}.badgetext{display:inline-block;border-radius:8px;padding:5px 8px;background:#303354;font-size:11px;color:#d6dbff}
+    .overlay{position:fixed;inset:0;z-index:5;background:#0a0a1cc9;display:flex;align-items:flex-end;justify-content:center;padding:12px 10px max(14px,env(safe-area-inset-bottom))}.dialog{width:min(520px,100%);max-height:87vh;overflow-y:auto;background:linear-gradient(145deg,#272846,#1b1e38);border:1px solid #4e5274;border-radius:22px;padding:20px 16px;box-shadow:0 20px 45px #05050d99}.dialog h2{margin:2px 0 8px;font-size:22px}.dialog p{line-height:1.7;font-size:14px;color:#d5d8ed}.dialog .primary{margin-top:15px}.diff{font-weight:900;font-size:clamp(32px,10vw,46px);text-align:center;padding:15px 0 4px;letter-spacing:-.04em;animation:reward-pop .32s cubic-bezier(.2,1.4,.4,1) both}.diff small{font-size:14px;margin-left:4px}.result-subs{text-align:center;color:#c3c8e0;font-size:12px;margin:0 0 12px}.result-tag{font-weight:800;color:var(--yellow);font-size:12px;letter-spacing:.03em}.result-meta{margin-top:11px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:8px}.result-dialog.jackpot{background:radial-gradient(ellipse at top,#55416b 0%,#292846 42%,#1b1e38 100%);border-color:#f7da97}.milestone-hit{background:#3a3659;color:#ffe69f;border:1px solid #8d7b56;border-radius:11px;padding:10px;text-align:center;font-size:14px;font-weight:850;margin:10px 0}.result-details{margin-top:12px;padding:8px 0;border-top:1px solid #41435d}.result-details summary{cursor:pointer;font-size:12px;color:#c7c8e3;padding:5px}.result-details .metricrow{font-size:12px}.event-description{margin-bottom:9px}
+    @keyframes reward-pop{from{opacity:.35;transform:scale(.8) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}@media(prefers-reduced-motion:reduce){.diff{animation:none}}
+    .debugpanel{font-size:12px;margin-top:12px;background:#101327;border-radius:13px;padding:12px;border:1px solid #484c75;display:none}.debugpanel.show{display:block}.debugpanel pre{white-space:pre-wrap;word-break:break-word;font-size:11px;color:#c5cee7;max-height:160px;overflow:auto}.debugactions{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}.note{font-size:11px;color:#9298b9}.sr-only{position:absolute;clip:rect(0,0,0,0);width:1px;height:1px;overflow:hidden}
+    @media(max-width:350px){.top h1{font-size:18px}.cardbox{padding:12px}.days{gap:3px}.day{min-height:72px}.dayrel{font-size:9px}.stats{gap:3px}.stat .label{font-size:10px}.stat .value{font-size:18px}}
     @media(min-width:700px){.overlay{align-items:center}}
   </style>
 </head>
@@ -27,11 +39,11 @@
 <main>
   <header class="top"><div><div class="eyebrow">INDIE VTUBER SIM / PROTOTYPE</div><h1>個人勢、100万人への道 ✦</h1></div><button class="ghost" id="debugToggle" type="button">⚙ デバッグ</button></header>
   <section class="cardbox hero" aria-label="活動状況"><div class="flex"><div class="small" id="currentDate">活動1年目</div><span class="pill" id="turnCounter">0 / 150ターン</span></div><div class="small" style="margin-top:13px">チャンネル登録者数</div><div class="subscribers" id="subscribers">0 <span>人</span></div><div class="progress"><div id="progressFill"></div></div><div class="flex" style="margin-top:9px"><span class="small" id="goalText">100万人まであと1,000,000人</span><span class="milestone" id="milestone">まずは1,000人！</span></div><div class="stats" id="stats" aria-label="ステータス"></div></section>
-  <section class="cardbox" aria-label="カレンダー"><div class="sectiontitle"><h2>📅 活動カレンダー</h2><span class="small" id="month">2027年1月</span></div><div class="daynames"><div>日</div><div>月</div><div>火</div><div>水</div><div>木</div><div>金</div><div>土</div></div><div class="days" id="calendar"></div><div class="legend"><span><b class="event-random">？</b>ランダム</span><span><b class="event-status">↑</b>成長</span><span><b class="event-social">♡</b>交流</span><span><b class="event-lucky">★</b>ラッキー</span></div></section>
-  <section class="cardbox" aria-label="活動カード"><div class="sectiontitle"><h2>🃏 次の活動を選ぶ</h2><span class="pill">手札 5枚</span></div><div class="hand" id="hand"></div><p class="hint" id="preview">カードを選ぶと停止マスを確認できます。</p><button type="button" class="primary" id="playButton">選んだ活動で進む →</button></section>
+  <section class="cardbox" aria-label="カレンダー"><div class="sectiontitle"><h2>📅 活動カレンダー</h2><span class="small" id="month">2027年1月</span></div><div class="days" id="calendar" aria-label="前日から5日後までのカレンダー"></div><div class="far-target" id="farPreview" aria-live="polite"></div><div class="legend"><span><b class="event-random">？</b>ランダム</span><span><b class="event-status">↑</b>成長</span><span><b class="event-social">♡</b>交流</span><span><b class="event-lucky">★</b>ラッキー</span></div></section>
+  <section class="cardbox" aria-label="活動カード"><div class="sectiontitle"><h2>🃏 次の活動を選ぶ</h2><span class="pill">手札 2枚</span></div><div class="hand" id="hand"></div><p class="hint" id="preview">カードを選ぶと到着マスと獲得人数の目安がわかります。</p><button type="button" class="primary" id="playButton">選んだ活動で進む →</button></section>
   <section class="cardbox"><div class="sectiontitle"><h2>📖 活動の記録</h2><span class="small">直近3回</span></div><div id="history"><p class="small">まだ活動記録はありません。</p></div></section>
   <div class="debugpanel" id="debugPanel"><strong>デバッグ情報</strong><div class="debugactions"><button class="subbtn" id="saveExport" type="button">セーブデータを書き出す</button><button class="subbtn" id="restart" type="button">最初からやり直す</button></div><p class="note">バランスの係数はHTML内の CONFIG を編集できます。進行状況はこのブラウザに自動保存されます。</p><pre id="debugInfo"></pre></div>
-  <p class="footer">試作版 v0.1 ・ 架空のVTuber育成ゲーム ・ 無料 / オフライン動作</p>
+  <p class="footer">試作版 v0.2 ・ 架空のVTuber育成ゲーム ・ 無料 / オフライン動作</p>
 </main>
 <div id="modalRoot"></div>
 <script>
@@ -79,6 +91,7 @@ const dateAt=(day)=>new Date(ORIGIN_UTC+day*86400000);
 const dateFmt=(d)=>`${d.getUTCFullYear()}年${d.getUTCMonth()+1}月${d.getUTCDate()}日`;
 const dateIndex=(y,m,d)=>Math.round((Date.UTC(y,m,d)-ORIGIN_UTC)/86400000);
 const aCard=(id)=>TYPES.find(t=>t.id===id);
+const estimateGain=(card)=>Math.round(CONFIG.cardBase[card.level-1]*(1+Math.sqrt(s.subs/CONFIG.growthPopularityScale))*aCard(card.type).factor*CONFIG.growthMultiplier);
 const getWeighted=(entries)=>{let n=rand(0,entries.reduce((sum,p)=>sum+p[1],0));for(const [key,w] of entries){n-=w;if(n<0)return key;}return entries.at(-1)[0];};
 let s;
 let chosenIndex=0;
@@ -91,10 +104,10 @@ function drawCard(stats){
 }
 function newGame(){
   const stats=Object.fromEntries(STAT_LABELS.map(([id])=>[id,randint(CONFIG.initialStatMin,CONFIG.initialStatMax)]));
-  return {day:0,turn:0,subs:0,stats,hand:Array.from({length:5},()=>drawCard(stats)),squares:{},history:[],selected:0,won:false,lost:false};
+  return {day:0,turn:0,subs:0,stats,hand:Array.from({length:2},()=>drawCard(stats)),squares:{},history:[],selected:0,won:false,lost:false};
 }
 function load(){
-  try{const raw=localStorage.getItem(STORAGE_KEY);if(!raw)return newGame();const obj=JSON.parse(raw);if(!obj||!obj.stats||!Array.isArray(obj.hand)||obj.hand.length!==5||typeof obj.day!=='number')throw Error('invalid');return obj;}catch{return newGame();}
+  try{const raw=localStorage.getItem(STORAGE_KEY);if(!raw)return newGame();const obj=JSON.parse(raw);if(!obj||!obj.stats||!Array.isArray(obj.hand)||obj.hand.length<2||typeof obj.day!=='number')throw Error('invalid');obj.hand=obj.hand.slice(0,2);return obj;}catch{return newGame();}
 }
 function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(s));}catch(e){console.warn('Unable to save',e);}}
 function squareAt(day){const k=String(day);if(!s.squares[k])s.squares[k]=getWeighted(CONFIG.squareWeights);return s.squares[k];}
@@ -111,7 +124,7 @@ function render(){
   renderCalendar(now);
   $('hand').innerHTML=s.hand.map((card,i)=>{
     const type=aCard(card.type);
-    return `<button class="actioncard ${i===chosenIndex?'selected':''}" data-card="${i}" aria-pressed="${i===chosenIndex}" type="button"><span class="activityicon">${type.icon}</span><span class="activityname">${type.name}</span><span class="level">Lv.${card.level} ${'★'.repeat(card.level)}</span><span class="dayscount">${card.days}日進む</span><span class="subhint">${STAT_LABELS.find(st=>st[0]===type.stat)[1]}が成長</span></button>`;
+    return `<button class="actioncard ${i===chosenIndex?'selected':''}" data-card="${i}" aria-pressed="${i===chosenIndex}" type="button"><span class="activityicon">${type.icon}</span><span class="activityname">${type.name}</span><span class="level">Lv.${card.level} ${'★'.repeat(card.level)}</span><span class="dayscount">${card.days}日進む</span><span class="cardgain">+約${fmt(estimateGain(card))}人</span><span class="subhint">${STAT_LABELS.find(st=>st[0]===type.stat)[1]}が成長</span></button>`;
   }).join('');
   document.querySelectorAll('[data-card]').forEach(btn=>btn.addEventListener('click',()=>{chosenIndex=Number(btn.dataset.card);render();}));
   const card=s.hand[chosenIndex];const target=squareAt(s.day+card.days);
@@ -125,23 +138,28 @@ function render(){
   save();
 }
 function renderCalendar(now){
-  const year=now.getUTCFullYear(),month=now.getUTCMonth();
-  $('month').textContent=`${year}年${month+1}月`;
-  const offset=new Date(Date.UTC(year,month,1)).getUTCDay();
-  const count=new Date(Date.UTC(year,month+1,0)).getUTCDate();
+  $('month').textContent='前日〜5日後';
   const card=s.hand[chosenIndex],target=s.day+card.days;
   const boxes=[];
-  for(let i=0;i<offset;i++)boxes.push('<div class="day blank"></div>');
-  for(let d=1;d<=count;d++){
-    const index=dateIndex(year,month,d);
-    const type=squareAt(index);
-    const icon=SYMBOLS[type];
-    let cls=index<s.day?'past':'';
-    if(index===s.day)cls+=' current';
-    if(index===target)cls+=' target';
-    boxes.push(`<div class="day ${cls}" title="${d}日 ${type}"><div class="daynum">${d}</div><div class="glyph ${icon[1]}">${icon[0]}</div></div>`);
+  for(let offset=-1;offset<=5;offset++){
+    const index=s.day+offset;
+    const date=dateAt(index);
+    const label=offset===-1?'前日':offset===0?'今日':offset===1?'明日':`+${offset}日`;
+    const dateLabel=date.getUTCMonth()===now.getUTCMonth()?`${date.getUTCDate()}日`:`${date.getUTCMonth()+1}/${date.getUTCDate()}`;
+    const square=offset>0?squareAt(index):null;
+    const icon=square?SYMBOLS[square]:null;
+    const cls=offset===-1?'past':offset===0?'current':index===target?'target':'';
+    const glyph=offset===0?'●':offset===-1?'·':icon[0];
+    const glyphClass=icon?icon[1]:'';
+    boxes.push(`<div class="day ${cls}" title="${dateFmt(date)} ${square||'活動日'}" ${index===target?'aria-current="step"':''}><div class="dayrel">${label}</div><div class="daynum">${dateLabel}</div><div class="glyph ${glyphClass}">${glyph}</div></div>`);
   }
   $('calendar').innerHTML=boxes.join('');
+  if(card.days>5){
+    const sq=squareAt(target);
+    $('farPreview').textContent=`↗ ${card.days}日後は表示外 · 到着マス：${SYMBOLS[sq][0]} ${{random:'ランダム',status:'成長',social:'交流',lucky:'ラッキー'}[sq]}`;
+  }else{
+    $('farPreview').textContent='';
+  }
 }
 function pick(arr){return arr[randint(0,arr.length-1)];}
 function eventFor(square,type,base,stats,card){
@@ -201,16 +219,36 @@ function play(){
   s.hand[chosenIndex]=drawCard(s.stats);
   s.won=s.subs>=CONFIG.targetSubscribers;
   s.lost=s.turn>=CONFIG.maxTurns&&!s.won;
-  const result={type,card,date,base,gain,evt,growth,newSubscribers:s.subs,won:s.won,lost:s.lost};
+  const result={type,card,date,base,gain,evt,growth,newSubscribers:s.subs,previousSubscribers:initialSubs,won:s.won,lost:s.lost};
   chosenIndex=0;
   render();
   showResult(result);
 }
 function showResult(r){
   modalOpen=true;
-  const winMsg=r.won?`<p class="green"><strong>🎉 100万人達成！ おめでとう！ ${s.turn}ターンで達成しました。</strong></p>`:'';
-  const loseMsg=r.lost?`<p class="red"><strong>150ターン終了！ 今回は${fmt(s.subs)}人でフィニッシュ。もう一度挑戦できます。</strong></p>`:'';
-  $('modalRoot').innerHTML=`<div class="overlay" role="presentation"><div class="dialog" role="dialog" aria-modal="true" aria-labelledby="resultTitle"><div class="small">第${s.turn}ターン · ${r.date}</div><div class="pill" style="margin-top:7px">${r.type.icon} ${r.type.name} Lv.${r.card.level} · ${r.card.days}日</div><h2 id="resultTitle">${r.evt.title}</h2><p>${r.evt.description}</p><div class="badgetext">${r.evt.extra}</div><div class="metricrow"><span>カードによる獲得</span><strong class="green">+${fmt(r.base)}人</strong></div><div class="metricrow"><span>マスイベント</span><strong class="${r.evt.subs>=0?'green':'red'}">${r.evt.subs>=0?'+':''}${fmt(r.evt.subs)}人</strong></div><div class="metricrow"><span>ステータス成長</span><strong>+${r.growth} (${STAT_LABELS.find(x=>x[0]===r.type.stat)[1]})</strong></div><div class="diff ${r.gain>=0?'green':'red'}">${r.gain>=0?'+':''}${fmt(r.gain)} 人</div><div class="small" style="text-align:center">現在の登録者数 ${fmt(r.newSubscribers)}人</div>${winMsg}${loseMsg}<button type="button" class="primary" id="closeModal">${r.won||r.lost?'結果を閉じる':'次の活動へ →'}</button></div></div>`;
+  const lucky=r.evt.name==='ラッキー';
+  const previous=[1000,10000,100000,500000,1000000].filter(n=>r.previousSubscribers<n&&r.newSubscribers>=n);
+  const milestoneNote=previous.length?`<div class="milestone-hit">🎊 登録者${fmt(previous.at(-1))}人突破！</div>`:'';
+  const winMsg=r.won?`<p class="green"><strong>🏆 100万人達成！ ${s.turn}ターンで夢を叶えました！</strong></p>`:'';
+  const loseMsg=r.lost?`<p class="red"><strong>150ターン終了！ ${fmt(s.subs)}人でフィニッシュ。</strong></p>`:'';
+  const tag=lucky?'✨ 大当たり！':r.evt.name==='ランダム（悪）'?'💦 ハプニング':r.evt.name==='ステータスUP'?'📈 成長チャンス！':r.evt.name==='交流'?'🤝 新たな出会い':'🎬 配信結果';
+  $('modalRoot').innerHTML=`<div class="overlay" role="presentation"><div class="dialog result-dialog ${lucky?'jackpot':''}" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+    <div class="small">第${s.turn}ターン · ${r.date}</div>
+    <div class="result-tag" style="margin-top:12px">${tag}</div>
+    <h2 id="resultTitle">${r.evt.title}</h2>
+    <p class="event-description">${r.evt.description}</p>
+    <div class="diff ${r.gain>=0?'green':'red'}">${r.gain>=0?'+':''}${fmt(r.gain)}<small>人</small></div>
+    <div class="result-subs">登録者数 ${fmt(r.newSubscribers)}人</div>
+    ${milestoneNote}
+    <div class="result-meta"><span>${r.type.icon} ${r.type.name} Lv.${r.card.level}</span><span>成長：${STAT_LABELS.find(x=>x[0]===r.type.stat)[1]} +${r.growth}</span></div>
+    <details class="result-details"><summary>獲得人数の内訳を見る</summary>
+      <div class="metricrow"><span>カード</span><strong class="green">+${fmt(r.base)}人</strong></div>
+      <div class="metricrow"><span>マスイベント</span><strong class="${r.evt.subs>=0?'green':'red'}">${r.evt.subs>=0?'+':''}${fmt(r.evt.subs)}人</strong></div>
+      <div class="metricrow"><span>イベント効果</span><strong>${r.evt.extra}</strong></div>
+    </details>
+    ${winMsg}${loseMsg}
+    <button type="button" class="primary" id="closeModal">${r.won||r.lost?'結果を閉じる':'次の活動へ →'}</button>
+  </div></div>`;
   $('closeModal').addEventListener('click',()=>{$('modalRoot').innerHTML='';modalOpen=false;});
   $('closeModal').focus();
 }
