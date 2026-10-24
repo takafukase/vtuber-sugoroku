@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#14142a" />
+  <title>個人勢VTuber、100万人への道 | 試作版</title>
+  <style>
+    :root{color-scheme:dark;--bg:#101021;--panel:#1b1c37;--panel2:#262844;--line:#393b60;--txt:#f5f5ff;--muted:#afb2cf;--mint:#66e6bc;--pink:#ff89c5;--yellow:#ffda83;--violet:#a6a0ff;--red:#ff9baf}
+    *{box-sizing:border-box}body{background:radial-gradient(ellipse at 15% 0%,#29254d 0%,#111122 45%,#101021 100%);margin:0;color:var(--txt);font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;-webkit-tap-highlight-color:transparent}
+    button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}button:disabled{opacity:.45;cursor:not-allowed}button:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
+    main{width:min(540px,100%);margin:auto;padding:16px 14px calc(35px + env(safe-area-inset-bottom));}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:2px 0 14px}.eyebrow{font-size:10px;letter-spacing:.16em;color:var(--mint);font-weight:850}.top h1{font-size:20px;line-height:1.3;margin:3px 0 0;letter-spacing:-.04em}.ghost{background:#292943;border:1px solid #4c4e70;padding:9px 11px;border-radius:12px;font-size:12px}
+    .cardbox{border:1px solid var(--line);background:linear-gradient(145deg,rgba(37,38,69,.96),rgba(24,24,48,.97));border-radius:20px;padding:16px;margin-bottom:12px;box-shadow:0 8px 18px rgba(0,0,0,.12)}
+    .hero{background:linear-gradient(110deg,#25224a 0%,#1b2145 56%,#203747 120%);position:relative;overflow:hidden}
+    .hero:before{content:'✦';position:absolute;color:#5fdab326;font-size:150px;right:-12px;top:-80px;pointer-events:none}.small{font-size:12px;color:var(--muted)}.subscribers{font-size:clamp(30px,8vw,45px);font-weight:850;letter-spacing:-.035em;margin:2px 0 7px;font-variant-numeric:tabular-nums}.subscribers span{font-size:13px;color:#c6c9e0;letter-spacing:0}.progress{height:9px;border-radius:99px;background:#131529;overflow:hidden;border:1px solid #4a4a76}.progress>div{height:100%;background:linear-gradient(90deg,#71dcbb,#8c9cfb);transition:width .25s;width:0}.flex{display:flex;justify-content:space-between;gap:10px;align-items:center}.pill{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:5px 9px;color:#d8d7ff;background:#46446b;font-size:11px;font-weight:700}.milestone{color:var(--mint);font-size:12px;font-weight:700}
+    .stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin-top:13px}.stat{background:#20243f;border-radius:11px;padding:8px 3px;text-align:center}.stat .label{color:#aeb1d4;font-size:11px}.stat .value{font-weight:850;font-size:21px;line-height:1.5}
+    .sectiontitle{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}.sectiontitle h2{font-size:16px;margin:0}.calendarHead{display:flex;justify-content:space-between;gap:8px;align-items:center}.month{font-size:19px;font-weight:800}.daynames,.days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}.daynames>div{text-align:center;color:#9da1bf;font-size:10px;padding:7px 0}.daynames>div:first-child{color:#ff9aaf}.daynames>div:last-child{color:#9faeff}
+    .day{border:1px solid #363951;border-radius:9px;aspect-ratio:1 / 1.16;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:#22243c;min-height:36px;position:relative}.day.blank{background:transparent;border-color:transparent}.day.past{opacity:.38}.day.current{border:2px solid #f3f1ff;box-shadow:inset 0 0 0 1px #4d4d79}.day.target{outline:2px solid var(--pink);outline-offset:1px}.daynum{font-size:10px;color:#bcbfdf}.glyph{font-size:16px;line-height:1}.day.current:after{content:'●';color:#f7f7ff;font-size:7px;position:absolute;right:4px;top:3px}.day.target .daynum{color:#ffb3da}.legend{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:11px}.legend span{font-size:10px;color:#b6b6d0}.legend b{font-weight:700;margin-right:2px}.event-random{color:#f3a1b3}.event-status{color:#82dfb7}.event-social{color:#a4aeff}.event-lucky{color:#ffe19a}
+    .hand{display:grid;grid-template-columns:repeat(5,minmax(112px,1fr));gap:8px;overflow-x:auto;scroll-snap-type:x proximity;padding:3px 2px 9px;scrollbar-width:thin}.actioncard{min-height:152px;border-radius:15px;background:#22243f;border:1px solid #454764;text-align:left;padding:11px 9px;display:flex;flex-direction:column;gap:5px;align-items:flex-start;scroll-snap-align:start}.actioncard.selected{border:2px solid var(--pink);background:#352d50;padding:10px 8px;box-shadow:0 0 0 1px #ff89c540}.activityicon{font-size:25px}.activityname{font-size:12px;font-weight:780;white-space:nowrap}.level{font-size:14px;color:var(--yellow);font-weight:850}.dayscount{font-size:11px;color:#d0d1eb;margin-top:auto}.subhint{font-size:10px;color:#bdc0d9}.hint{font-size:12px;color:#bfc1d9;margin:8px 0 12px}.primary{width:100%;border:0;border-radius:14px;padding:15px 12px;background:linear-gradient(100deg,#7b6fe9,#c175ba);color:white;font-size:15px;font-weight:800;box-shadow:0 6px 20px #8574de3b}.primary:active{transform:translateY(1px)}.subbtn{padding:8px 10px;border:1px solid #56587b;background:transparent;border-radius:12px;color:#d8d8f1;font-size:12px}.footer{color:#777e9f;text-align:center;font-size:10px;margin-top:16px}.metricrow{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:33px;padding:5px 0;border-bottom:1px solid #3c3d5c;font-size:13px}.metricrow:last-child{border:0}.green{color:var(--mint)}.red{color:var(--red)}.badgetext{display:inline-block;border-radius:8px;padding:5px 8px;background:#303354;font-size:11px;color:#d6dbff}
+    .overlay{position:fixed;inset:0;z-index:5;background:#0a0a1cc9;display:flex;align-items:flex-end;justify-content:center;padding:12px 10px max(14px,env(safe-area-inset-bottom))}.dialog{width:min(520px,100%);max-height:87vh;overflow-y:auto;background:linear-gradient(145deg,#272846,#1b1e38);border:1px solid #4e5274;border-radius:22px;padding:20px 16px;box-shadow:0 20px 45px #05050d99}.dialog h2{margin:2px 0 8px;font-size:22px}.dialog p{line-height:1.7;font-size:14px;color:#d5d8ed}.dialog .primary{margin-top:15px}.diff{font-weight:900;font-size:27px;text-align:center;padding:13px 0}.debugpanel{font-size:12px;margin-top:12px;background:#101327;border-radius:13px;padding:12px;border:1px solid #484c75;display:none}.debugpanel.show{display:block}.debugpanel pre{white-space:pre-wrap;word-break:break-word;font-size:11px;color:#c5cee7;max-height:160px;overflow:auto}.debugactions{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}.note{font-size:11px;color:#9298b9}.sr-only{position:absolute;clip:rect(0,0,0,0);width:1px;height:1px;overflow:hidden}
+    @media(max-width:350px){.top h1{font-size:18px}.cardbox{padding:12px}.daynames,.days{gap:3px}.stats{gap:3px}.stat .label{font-size:10px}.stat .value{font-size:18px}}
+    @media(min-width:700px){.overlay{align-items:center}}
+  </style>
+</head>
+<body>
+<main>
+  <header class="top"><div><div class="eyebrow">INDIE VTUBER SIM / PROTOTYPE</div><h1>個人勢、100万人への道 ✦</h1></div><button class="ghost" id="debugToggle" type="button">⚙ デバッグ</button></header>
+  <section class="cardbox hero" aria-label="活動状況"><div class="flex"><div class="small" id="currentDate">活動1年目</div><span class="pill" id="turnCounter">0 / 150ターン</span></div><div class="small" style="margin-top:13px">チャンネル登録者数</div><div class="subscribers" id="subscribers">0 <span>人</span></div><div class="progress"><div id="progressFill"></div></div><div class="flex" style="margin-top:9px"><span class="small" id="goalText">100万人まであと1,000,000人</span><span class="milestone" id="milestone">まずは1,000人！</span></div><div class="stats" id="stats" aria-label="ステータス"></div></section>
+  <section class="cardbox" aria-label="カレンダー"><div class="sectiontitle"><h2>📅 活動カレンダー</h2><span class="small" id="month">2027年1月</span></div><div class="daynames"><div>日</div><div>月</div><div>火</div><div>水</div><div>木</div><div>金</div><div>土</div></div><div class="days" id="calendar"></div><div class="legend"><span><b class="event-random">？</b>ランダム</span><span><b class="event-status">↑</b>成長</span><span><b class="event-social">♡</b>交流</span><span><b class="event-lucky">★</b>ラッキー</span></div></section>
+  <section class="cardbox" aria-label="活動カード"><div class="sectiontitle"><h2>🃏 次の活動を選ぶ</h2><span class="pill">手札 5枚</span></div><div class="hand" id="hand"></div><p class="hint" id="preview">カードを選ぶと停止マスを確認できます。</p><button type="button" class="primary" id="playButton">選んだ活動で進む →</button></section>
+  <section class="cardbox"><div class="sectiontitle"><h2>📖 活動の記録</h2><span class="small">直近3回</span></div><div id="history"><p class="small">まだ活動記録はありません。</p></div></section>
+  <div class="debugpanel" id="debugPanel"><strong>デバッグ情報</strong><div class="debugactions"><button class="subbtn" id="saveExport" type="button">セーブデータを書き出す</button><button class="subbtn" id="restart" type="button">最初からやり直す</button></div><p class="note">バランスの係数はHTML内の CONFIG を編集できます。進行状況はこのブラウザに自動保存されます。</p><pre id="debugInfo"></pre></div>
+  <p class="footer">試作版 v0.1 ・ 架空のVTuber育成ゲーム ・ 無料 / オフライン動作</p>
+</main>
+<div id="modalRoot"></div>
+<script>
+'use strict';
+/* ===== 調整する値は原則ここだけ ===== */
+const CONFIG = {
+  targetSubscribers: 1000000,
+  maxTurns: 150,
+  cardDaysMin: 1,
+  cardDaysMax: 7,
+  initialStatMin: 18,
+  initialStatMax: 48,
+  // レベルの中心値: 1 + (能力値 / statPerLevel) ＋ ランダムな揺らぎ
+  statPerLevel: 25,
+  levelNoise: 0.95,
+  // Lv.1〜5の登録者基礎増加（実際は現在登録者数の平方根倍率を掛ける）
+  cardBase: [22, 68, 185, 510, 1230],
+  growthMultiplier: 0.34,
+  growthPopularityScale: 1000,
+  statGrowthBase: 1,
+  statGrowthRandomMax: 2,
+  luckyMultiplierMin: 2.2,
+  luckyMultiplierMax: 4.5,
+  badEventChance: 0.43,
+  // マス抽選: ランダム 36%、ステータスUP 29%、交流 23%、ラッキー 12%
+  squareWeights: [['random',36],['status',29],['social',23],['lucky',12]]
+};
+const TYPES = [
+  {id:'talk',name:'雑談配信',icon:'💬',stat:'talk',factor:0.97},
+  {id:'game',name:'ゲーム配信',icon:'🎮',stat:'game',factor:1.06},
+  {id:'video',name:'企画動画',icon:'🎬',stat:'idea',factor:1.14},
+  {id:'short',name:'ショート',icon:'📱',stat:'idea',factor:1.23},
+  {id:'song',name:'歌枠',icon:'🎤',stat:'song',factor:0.91}
+];
+const STAT_LABELS = [['talk','トーク'],['idea','企画'],['song','歌唱'],['game','ゲーム'],['charisma','人望']];
+const SYMBOLS={random:['？','event-random'],status:['↑','event-status'],social:['♡','event-social'],lucky:['★','event-lucky']};
+const STORAGE_KEY='vtuber_sugoroku_proto_v1';
+const ORIGIN_UTC=Date.UTC(2027,0,1);
+const $=(id)=>document.getElementById(id);
+const rand=(a,b)=>a+Math.random()*(b-a);
+const randint=(a,b)=>Math.floor(rand(a,b+1));
+const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
+const fmt=(n)=>Math.floor(n).toLocaleString('ja-JP');
+const dateAt=(day)=>new Date(ORIGIN_UTC+day*86400000);
+const dateFmt=(d)=>`${d.getUTCFullYear()}年${d.getUTCMonth()+1}月${d.getUTCDate()}日`;
+const dateIndex=(y,m,d)=>Math.round((Date.UTC(y,m,d)-ORIGIN_UTC)/86400000);
+const aCard=(id)=>TYPES.find(t=>t.id===id);
+const getWeighted=(entries)=>{let n=rand(0,entries.reduce((sum,p)=>sum+p[1],0));for(const [key,w] of entries){n-=w;if(n<0)return key;}return entries.at(-1)[0];};
+let s;
+let chosenIndex=0;
+let modalOpen=false;
+function drawCard(stats){
+  const type=TYPES[randint(0,TYPES.length-1)];
+  const stat=stats[type.stat];
+  const x=1+stat/CONFIG.statPerLevel+rand(-CONFIG.levelNoise,CONFIG.levelNoise);
+  return {type:type.id,level:clamp(Math.round(x),1,5),days:randint(CONFIG.cardDaysMin,CONFIG.cardDaysMax)};
+}
+function newGame(){
+  const stats=Object.fromEntries(STAT_LABELS.map(([id])=>[id,randint(CONFIG.initialStatMin,CONFIG.initialStatMax)]));
+  return {day:0,turn:0,subs:0,stats,hand:Array.from({length:5},()=>drawCard(stats)),squares:{},history:[],selected:0,won:false,lost:false};
+}
+function load(){
+  try{const raw=localStorage.getItem(STORAGE_KEY);if(!raw)return newGame();const obj=JSON.parse(raw);if(!obj||!obj.stats||!Array.isArray(obj.hand)||obj.hand.length!==5||typeof obj.day!=='number')throw Error('invalid');return obj;}catch{return newGame();}
+}
+function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(s));}catch(e){console.warn('Unable to save',e);}}
+function squareAt(day){const k=String(day);if(!s.squares[k])s.squares[k]=getWeighted(CONFIG.squareWeights);return s.squares[k];}
+function milestone(n){return n>=1000000?'100万人達成！':n>=500000?'次は100万人！':n>=100000?'次は50万人！':n>=10000?'次は10万人！':n>=1000?'次は1万人！':'まずは1,000人！';}
+function render(){
+  const now=dateAt(s.day);
+  $('currentDate').textContent=`活動${Math.floor(s.day/365)+1}年目 · ${dateFmt(now)}`;
+  $('turnCounter').textContent=`${s.turn} / ${CONFIG.maxTurns}ターン`;
+  $('subscribers').innerHTML=`${fmt(s.subs)} <span>人</span>`;
+  $('progressFill').style.width=`${Math.min(100,s.subs/CONFIG.targetSubscribers*100)}%`;
+  $('goalText').textContent=s.won?'登録者100万人達成！':`100万人まであと${fmt(Math.max(0,CONFIG.targetSubscribers-s.subs))}人`;
+  $('milestone').textContent=milestone(s.subs);
+  $('stats').innerHTML=STAT_LABELS.map(([id,label])=>`<div class="stat"><div class="label">${label}</div><div class="value">${s.stats[id]}</div></div>`).join('');
+  renderCalendar(now);
+  $('hand').innerHTML=s.hand.map((card,i)=>{
+    const type=aCard(card.type);
+    return `<button class="actioncard ${i===chosenIndex?'selected':''}" data-card="${i}" aria-pressed="${i===chosenIndex}" type="button"><span class="activityicon">${type.icon}</span><span class="activityname">${type.name}</span><span class="level">Lv.${card.level} ${'★'.repeat(card.level)}</span><span class="dayscount">${card.days}日進む</span><span class="subhint">${STAT_LABELS.find(st=>st[0]===type.stat)[1]}が成長</span></button>`;
+  }).join('');
+  document.querySelectorAll('[data-card]').forEach(btn=>btn.addEventListener('click',()=>{chosenIndex=Number(btn.dataset.card);render();}));
+  const card=s.hand[chosenIndex];const target=squareAt(s.day+card.days);
+  const moveDay=dateFmt(dateAt(s.day+card.days));
+  const eventNames={random:'ランダムイベント',status:'ステータスUP',social:'交流',lucky:'ラッキー'};
+  $('preview').textContent=`${moveDay}に移動 → ${eventNames[target]}マス（${SYMBOLS[target][0]}）`;
+  $('playButton').disabled=s.won||s.lost;
+  $('playButton').textContent=s.won?'🎉 100万人達成！':s.lost?'150ターン終了':`${aCard(card.type).name} Lv.${card.level} で ${card.days}日進む →`;
+  $('history').innerHTML=s.history.length?s.history.slice(-3).reverse().map(h=>`<div class="metricrow"><span>${h.date}<br/><span class="small">${h.activity} Lv.${h.level} / ${h.eventName}</span></span><strong class="${h.gain>=0?'green':'red'}">${h.gain>=0?'+':''}${fmt(h.gain)}人</strong></div>`).join(''):'<p class="small">まだ活動記録はありません。</p>';
+  $('debugInfo').textContent=JSON.stringify({turn:s.turn,day:s.day,subscribers:s.subs,stats:s.stats,drawnSquares:Object.keys(s.squares).length,hand:s.hand,last5:s.history.slice(-5),CONFIG},null,2);
+  save();
+}
+function renderCalendar(now){
+  const year=now.getUTCFullYear(),month=now.getUTCMonth();
+  $('month').textContent=`${year}年${month+1}月`;
+  const offset=new Date(Date.UTC(year,month,1)).getUTCDay();
+  const count=new Date(Date.UTC(year,month+1,0)).getUTCDate();
+  const card=s.hand[chosenIndex],target=s.day+card.days;
+  const boxes=[];
+  for(let i=0;i<offset;i++)boxes.push('<div class="day blank"></div>');
+  for(let d=1;d<=count;d++){
+    const index=dateIndex(year,month,d);
+    const type=squareAt(index);
+    const icon=SYMBOLS[type];
+    let cls=index<s.day?'past':'';
+    if(index===s.day)cls+=' current';
+    if(index===target)cls+=' target';
+    boxes.push(`<div class="day ${cls}" title="${d}日 ${type}"><div class="daynum">${d}</div><div class="glyph ${icon[1]}">${icon[0]}</div></div>`);
+  }
+  $('calendar').innerHTML=boxes.join('');
+}
+function pick(arr){return arr[randint(0,arr.length-1)];}
+function eventFor(square,type,base,stats,card){
+  // マスの効果はカード本来の獲得分と別に加減算する
+  if(square==='status'){
+    const bonus=randint(3,7);stats[type.stat]=clamp(stats[type.stat]+bonus,0,100);
+    return {name:'ステータスUP',title:'配信のコツを掴んだ！',description:`${type.name}が思いのほか上達した。${STAT_LABELS.find(x=>x[0]===type.stat)[1]}がさらに${bonus}上がった。`,subs:0,extra:`${STAT_LABELS.find(x=>x[0]===type.stat)[1]} +${bonus}`};
+  }
+  if(square==='social'){
+    const plus=randint(2,5);stats.charisma=clamp(stats.charisma+plus,0,100);
+    const collab=Math.random()<(0.20+stats.charisma/250);
+    if(collab)return{name:'交流',title:'先輩VTuberから突発コラボの誘い！',description:'配信でのやりとりをきっかけに、人気の個人勢から声がかかった。思わぬ交流が新規視聴者を連れてきた。',subs:Math.round(base*rand(0.8,2.5)),extra:`人望 +${plus}`};
+    return{name:'交流',title:'配信者仲間が増えた！',description:'SNSでの何気ないやりとりから交流が生まれた。次の企画が楽しみになった。',subs:Math.round(base*rand(0.1,0.5)),extra:`人望 +${plus}`};
+  }
+  if(square==='lucky'){
+    const scenarios=[
+      ['切り抜きが大バズり！','何気なく発した一言が切り抜かれ、SNSで一気に拡散！'],
+      ['ショートが思いがけず100万再生！','おすすめ欄に乗った動画が、普段配信を見ない層にまで届いた。'],
+      ['憧れの人気VTuberに紹介された！','人気配信者の話題に名前が出て、チャンネルを訪れる人が急増！'],
+      ['奇跡の神回が誕生！','配信の展開が予想外の盛り上がりに。ファンが「伝説」と呼び始めた。']
+    ];const [title,description]=pick(scenarios);
+    return{name:'ラッキー',title,description,subs:Math.round(base*rand(CONFIG.luckyMultiplierMin,CONFIG.luckyMultiplierMax)),extra:'大チャンス！'};
+  }
+  if(Math.random()<CONFIG.badEventChance){
+    const scenarios=[
+      ['開始10分間ミュート','一生懸命話していたのに音声が入っていなかった。待機していたファンには妙にウケた。'],
+      ['配信予定を間違えた！','曜日を勘違い。告知と実際の配信時間がずれてしまった。'],
+      ['サムネを差し替え忘れた','前回のタイトルのまま配信開始。リスナーから総ツッコミを受けた。'],
+      ['ネット回線がご機嫌斜め','いいところで配信が止まってしまい、盛り上がりが途切れてしまった。']
+    ];const [title,description]=pick(scenarios);
+    return{name:'ランダム（悪）',title,description,subs:-Math.round(base*rand(0.3,1.3)),extra:'ハプニング発生'};
+  }
+  const scenarios=[
+    ['「くしゃみ助かる」が定着','突然のくしゃみにコメント欄が妙に盛り上がった。新たな内輪ネタが誕生。'],
+    ['雑談の脱線が大ウケ','本題より脱線話が盛り上がり、続編を求められることに。'],
+    ['謎のあだ名が流行','リスナーがつけた呼び名が意外と好評。本人もまんざらではない。'],
+    ['予想外の珍プレイ','本人は真剣なのに、視聴者は笑いっぱなし。切り抜きが少し話題に。']
+  ];const [title,description]=pick(scenarios);
+  return{name:'ランダム（良）',title,description,subs:Math.round(base*rand(0.35,1.5)),extra:'ちょっと話題に！'};
+}
+function play(){
+  if(modalOpen||s.won||s.lost)return;
+  const card=s.hand[chosenIndex],type=aCard(card.type);
+  const initialSubs=s.subs;
+  const popularity=1+Math.sqrt(s.subs/CONFIG.growthPopularityScale);
+  const base=Math.max(1,Math.round(CONFIG.cardBase[card.level-1]*popularity*type.factor*CONFIG.growthMultiplier*rand(0.8,1.2)));
+  const growth=CONFIG.statGrowthBase+randint(0,CONFIG.statGrowthRandomMax)+(card.level>=4?1:0);
+  s.stats[type.stat]=clamp(s.stats[type.stat]+growth,0,100);
+  s.day+=card.days;
+  s.turn++;
+  const square=squareAt(s.day);
+  const evt=eventFor(square,type,base,s.stats,card);
+  s.subs=Math.max(0,s.subs+base+evt.subs);
+  const gain=s.subs-initialSubs;
+  const date=dateFmt(dateAt(s.day));
+  s.history.push({turn:s.turn,date,activity:type.name,level:card.level,days:card.days,eventName:evt.name,eventTitle:evt.title,gain,base,eventGain:evt.subs,statsGrowth:growth});
+  s.hand[chosenIndex]=drawCard(s.stats);
+  s.won=s.subs>=CONFIG.targetSubscribers;
+  s.lost=s.turn>=CONFIG.maxTurns&&!s.won;
+  const result={type,card,date,base,gain,evt,growth,newSubscribers:s.subs,won:s.won,lost:s.lost};
+  chosenIndex=0;
+  render();
+  showResult(result);
+}
+function showResult(r){
+  modalOpen=true;
+  const winMsg=r.won?`<p class="green"><strong>🎉 100万人達成！ おめでとう！ ${s.turn}ターンで達成しました。</strong></p>`:'';
+  const loseMsg=r.lost?`<p class="red"><strong>150ターン終了！ 今回は${fmt(s.subs)}人でフィニッシュ。もう一度挑戦できます。</strong></p>`:'';
+  $('modalRoot').innerHTML=`<div class="overlay" role="presentation"><div class="dialog" role="dialog" aria-modal="true" aria-labelledby="resultTitle"><div class="small">第${s.turn}ターン · ${r.date}</div><div class="pill" style="margin-top:7px">${r.type.icon} ${r.type.name} Lv.${r.card.level} · ${r.card.days}日</div><h2 id="resultTitle">${r.evt.title}</h2><p>${r.evt.description}</p><div class="badgetext">${r.evt.extra}</div><div class="metricrow"><span>カードによる獲得</span><strong class="green">+${fmt(r.base)}人</strong></div><div class="metricrow"><span>マスイベント</span><strong class="${r.evt.subs>=0?'green':'red'}">${r.evt.subs>=0?'+':''}${fmt(r.evt.subs)}人</strong></div><div class="metricrow"><span>ステータス成長</span><strong>+${r.growth} (${STAT_LABELS.find(x=>x[0]===r.type.stat)[1]})</strong></div><div class="diff ${r.gain>=0?'green':'red'}">${r.gain>=0?'+':''}${fmt(r.gain)} 人</div><div class="small" style="text-align:center">現在の登録者数 ${fmt(r.newSubscribers)}人</div>${winMsg}${loseMsg}<button type="button" class="primary" id="closeModal">${r.won||r.lost?'結果を閉じる':'次の活動へ →'}</button></div></div>`;
+  $('closeModal').addEventListener('click',()=>{$('modalRoot').innerHTML='';modalOpen=false;});
+  $('closeModal').focus();
+}
+$('playButton').addEventListener('click',play);
+$('debugToggle').addEventListener('click',()=>{$('debugPanel').classList.toggle('show');});
+$('restart').addEventListener('click',()=>{if(!confirm('進行状況を消して最初からやり直しますか？'))return;s=newGame();chosenIndex=0;render();});
+$('saveExport').addEventListener('click',()=>{
+  const payload=JSON.stringify({exportedAt:new Date().toISOString(),save:s,config:CONFIG},null,2);
+  const blob=new Blob([payload],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`vtuber-save-turn${s.turn}.json`;document.body.append(a);a.click();a.remove();URL.revokeObjectURL(url);
+});
+s=load();render();
+</script>
+</body>
+</html>
